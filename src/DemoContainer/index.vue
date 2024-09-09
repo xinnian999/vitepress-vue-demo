@@ -19,6 +19,7 @@ import { computed, ref } from 'vue'
 import CodeIcon from './CodeIcon.vue'
 import CopyIcon from './CopyIcon.vue'
 import { ElMessage, ElTooltip } from 'element-plus'
+import 'element-plus/theme-chalk/index.css'
 
 const props = defineProps<{ code: string }>()
 

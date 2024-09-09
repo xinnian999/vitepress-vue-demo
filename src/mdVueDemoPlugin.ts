@@ -11,6 +11,7 @@ export default (md: MarkdownIt) => {
     render(tokens:any[], idx: number) {
       if (tokens[idx].nesting === 1) {
         const filePath = tokens[idx + 2].content;
+        
         const sourcePath = path.resolve("docs", filePath);
         const source = fs.readFileSync(sourcePath, "utf-8");
 
