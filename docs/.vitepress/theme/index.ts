@@ -1,14 +1,18 @@
-import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import {mdVueDemo} from '../../../dist'
-import  '../../../dist/style.css'
+import type { Theme } from "vitepress";
+import DefaultTheme from "vitepress/theme";
+import { Component } from "vue";
+import { mdVueDemo } from "../../../dist";
+import "../../../dist/style.css";
 
-const modules = import.meta.glob('../../demos/**/*.vue', { eager: true })
+const modules = import.meta.glob<Component>("../../demos/**/*.vue", {
+  eager: true,
+  import: "default",
+});
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     // 注册自定义全局组件
-    app.use(mdVueDemo,{modules})
-  }
-} satisfies Theme
+    app.use(mdVueDemo, { modules });
+  },
+} satisfies Theme;

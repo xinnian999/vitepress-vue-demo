@@ -1,8 +1,8 @@
-import type { App } from "vue";
+import type { App, Component } from "vue";
 import DemoContainer from "./DemoContainer/index.vue";
 
 type Options={
-    modules: Record<string, { default: () => void }>
+    modules: Record<string, Component>
 }
 
 export default (
@@ -17,7 +17,7 @@ export default (
       .replace(/\.\w+$/, "");
     return {
       name: componentName,
-      component: module.default,
+      component: module,
     };
   });
 
