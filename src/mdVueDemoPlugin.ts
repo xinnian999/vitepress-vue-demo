@@ -4,20 +4,27 @@ import fs from "fs";
 import type MarkdownIt from "markdown-it";
 
 export default (md: MarkdownIt) => {
+  
   md.use(markdownItContainer, "demo", {
     validate: (params: string) => {
       return params.trim().match(/^demo\s*(.*)$/);
     },
     render(tokens:any[], idx: number) {
-      if (tokens[idx].nesting === 1) {
+
+      const record=tokens[idx]
+      
+      if (record.nesting === 1) {
         const filePath = tokens[idx + 2].content;
         
         const sourcePath = path.resolve("docs", filePath);
+
         const source = fs.readFileSync(sourcePath, "utf-8");
 
-        return `<DemoContainer code="${encodeURIComponent(
+        const codeRender=encodeURIComponent(
           md.render(`\`\`\` vue\n${source}\`\`\``)
-        )}"><template #source><${filePath
+        )
+
+        return `<DemoContainer code="${codeRender}" expand="${record.info.includes('expand')}"><template #source><${filePath
           .split(".")[0]
           .replaceAll("/", "-")}/></template>`; // 开始标签
       } else {

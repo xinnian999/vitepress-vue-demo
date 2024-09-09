@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import { mdVueDemoPlugin } from "../../dist";
+// import  mdVueDemoPlugin  from "../../src/mdVueDemoPlugin";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

@@ -1,6 +1,6 @@
 # test
 
-::: demo
+::: demo expand
 
 demos/Button.vue
 

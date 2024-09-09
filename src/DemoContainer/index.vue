@@ -5,8 +5,13 @@
     </div>
 
     <div class="vp-demo-actions">
-      <ElTooltip v-for="{ message, icon, onClick } in actions" :content="message">
-        <div class="vp-demo-actions-icon" @click="onClick"><component :is="icon" /></div>
+      <ElTooltip
+        v-for="{ message, icon, onClick } in actions"
+        :content="message"
+      >
+        <div class="vp-demo-actions-icon" @click="onClick">
+          <component :is="icon" />
+        </div>
       </ElTooltip>
     </div>
 
@@ -15,30 +20,38 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import CodeIcon from './CodeIcon.vue'
-import CopyIcon from './CopyIcon.vue'
-import { ElMessage, ElTooltip } from 'element-plus'
-import 'element-plus/theme-chalk/index.css'
+import { computed, ref, watchEffect } from "vue";
+import CodeIcon from "./CodeIcon.vue";
+import CopyIcon from "./CopyIcon.vue";
+import { ElMessage, ElTooltip } from "element-plus";
+import "element-plus/theme-chalk/index.css";
 
-const props = defineProps<{ code: string }>()
+const props = defineProps<{ code: string; expand: boolean }>();
 
-const visible = ref(false)
+const visible = ref(false);
 
-const sourceCode = computed(() => decodeURIComponent(props.code))
+const sourceCode = computed(() => decodeURIComponent(props.code));
 
 const actions = [
   {
-    message: '复制代码',
+    message: "复制代码",
     icon: CopyIcon,
     onClick: () => {
       navigator.clipboard.writeText(sourceCode.value).then(() => {
-        ElMessage.success('已复制！')
-      })
-    }
+        ElMessage.success("已复制！");
+      });
+    },
   },
-  { message: '查看源代码', icon: CodeIcon, onClick: () => (visible.value = !visible.value) }
-]
+  {
+    message: "查看源代码",
+    icon: CodeIcon,
+    onClick: () => (visible.value = !visible.value),
+  },
+];
+
+watchEffect(() => {
+  visible.value = props.expand;
+});
 </script>
 
 <style lang="less">
