@@ -1,7 +1,8 @@
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { Component } from "vue";
-import { mdVueDemo } from "../../../dist";
+import  mdVueDemo  from "../../../src/mdVueDemo";
+// import { mdVueDemo } from "../../../dist";
 import "../../../dist/style.css";
 
 const modules = import.meta.glob<Component>("../../demos/**/*.vue", {

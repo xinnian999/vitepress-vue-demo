@@ -24,7 +24,7 @@ export default (md: MarkdownIt) => {
           md.render(`\`\`\` vue\n${source}\`\`\``)
         )
 
-        return `<DemoContainer code="${codeRender}" expand="${record.info.includes('expand')}"><template #source><${filePath
+        return `<DemoContainer code="${codeRender}" :expand="${record.info.includes('expand')}"><template #source><${filePath
           .split(".")[0]
           .replaceAll("/", "-")}/></template>`; // 开始标签
       } else {

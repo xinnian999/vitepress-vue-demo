@@ -50,6 +50,8 @@ const actions = [
 ];
 
 watchEffect(() => {
+  console.log(props.expand);
+  
   visible.value = props.expand;
 });
 </script>
