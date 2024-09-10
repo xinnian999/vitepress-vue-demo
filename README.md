@@ -74,4 +74,4 @@ demos/Button.vue
 
 ```
 
-![demo](./image.png)
+![demo](./demo.png)
