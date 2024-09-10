@@ -90,3 +90,15 @@ demos/Button.vue
 :::
 
 ```
+
+2、展示tsx组件
+
+```md
+
+::: demo
+
+demos/Button.tsx
+
+:::
+
+```
