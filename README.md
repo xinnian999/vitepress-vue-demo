@@ -28,7 +28,7 @@ pnpm add -D vitepress-vue-demo
 
 ## 使用
 
-`docs/.vitepress/config.ts` 中为markdown增加扩展
+1、`docs/.vitepress/config.ts` 中为markdown增加扩展
 
 ```ts
 // .vitepress/config.ts
@@ -47,7 +47,7 @@ export default defineConfig({
 })
 ```
 
-`docs/.vitepress/theme/index.ts` 中注册组件。
+2、`docs/.vitepress/theme/index.ts` 中注册组件。
 
 将你项目中所有vue示例组件，统一放到一个目录下，例如`docs/demos`。
 
@@ -60,7 +60,7 @@ import type { Component } from 'vue'
 import { mdVueDemo } from 'vitepress-vue-demo'
 import 'vitepress-vue-demo/dist/style.css'
 
-const modules = import.meta.glob<Component>('../../demo/**/*', { eager: true, import: 'default' })
+const modules = import.meta.glob<Component>('../../demos/**/*', { eager: true, import: 'default' })
 
 export default {
   extends: DefaultTheme,
@@ -68,5 +68,19 @@ export default {
      app.use(mdVueDemo, { modules })
   }
 } satisfies Theme
+
+```
+
+3、在你的文档中，可以通过路径直接展示组件了！
+
+```md
+
+## 按钮组件
+
+::: demo expand
+
+demos/Button.vue
+
+:::
 
 ```
