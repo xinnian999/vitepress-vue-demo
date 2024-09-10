@@ -43,6 +43,7 @@ export default defineConfig({
 然后通过vite的`import.meta.glob`模块，将这个目录下所有vue组件导入进来，传给`mdVueDemo`组件即可！
 
 ```ts
+// .vitepress/theme/index.ts
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import type { Component } from 'vue'
@@ -75,3 +76,17 @@ demos/Button.vue
 ```
 
 ![demo](./demo.png)
+
+## 更多用法
+
+1、默认展开代码
+
+```md
+
+::: demo expand
+
+demos/Button.vue
+
+:::
+
+```
