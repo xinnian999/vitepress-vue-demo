@@ -7,6 +7,9 @@ vitepress-vue-demo 是一个基于 Vitepress 开发的插件，它可以帮助�
 灵感来源：[element-plus源码](https://github.com/element-plus/element-plus/tree/dev/docs)
 
 
+![demo](./demo.png)
+
+
 ## 安装
 
 ```
@@ -75,7 +78,6 @@ demos/Button.vue
 
 ```
 
-![demo](./demo.png)
 
 ## 更多用法
 
