@@ -1,4 +1,5 @@
 <template>
+  <ElConfigProvider namespace="vd">
   <div id="vp-demo">
     <div class="vp-demo-source">
       <slot name="source" />
@@ -17,14 +18,15 @@
 
     <div v-if="visible" v-html="sourceCode"></div>
   </div>
+</ElConfigProvider>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue";
 import CodeIcon from "./CodeIcon.vue";
 import CopyIcon from "./CopyIcon.vue";
-import { ElMessage, ElTooltip } from "element-plus";
-import "element-plus/theme-chalk/index.css";
+import { ElMessage, ElTooltip ,ElConfigProvider} from "element-plus";
+import './element.css'
 
 const props = defineProps<{ code: string; expand: boolean }>();
 
@@ -50,7 +52,6 @@ const actions = [
 ];
 
 watchEffect(() => {
-  console.log(props.expand);
   
   visible.value = props.expand;
 });
