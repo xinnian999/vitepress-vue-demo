@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress";
+import { defineConfig, postcssIsolateStyles } from "vitepress";
 // import { mdVueDemoPlugin } from "../../dist";
 import  mdVueDemoPlugin  from "../../src/mdVueDemoPlugin";
 

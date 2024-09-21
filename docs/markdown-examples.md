@@ -14,3 +14,11 @@ demos/Button.vue
 demos/Button.tsx
 
 :::
+
+## 表格组件
+
+::: demo expand
+
+demos/Table.vue
+
+:::

@@ -1,6 +1,7 @@
 import type { Theme } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { Component } from "vue";
+import El from 'element-plus'
 import  mdVueDemo  from "../../../src/mdVueDemo";
 // import { mdVueDemo } from "../../../dist";
 // import "../../../dist/style.css";
@@ -15,5 +16,6 @@ export default {
   enhanceApp({ app }) {
     // 注册自定义全局组件
     app.use(mdVueDemo, { modules });
+    app.use(El);
   },
 } satisfies Theme;

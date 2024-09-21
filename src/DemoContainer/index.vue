@@ -1,7 +1,7 @@
 <template>
   <ElConfigProvider namespace="vd">
   <div id="vp-demo">
-    <div class="vp-demo-source">
+    <div class="vp-demo-source  vp-raw">
       <slot name="source" />
     </div>
 
