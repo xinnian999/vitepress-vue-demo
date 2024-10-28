@@ -33,7 +33,7 @@ export default defineConfig({
   ...
   markdown: {
     config: (md) => {
-      md.use(mdVueDemoPlugin)
+      md.use(mdVueDemoPlugin, {root:'docs'}) // 可以通过root指定vitepress启动目录，默认是docs
     }
   }
 })
