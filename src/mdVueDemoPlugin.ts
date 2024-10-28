@@ -3,7 +3,11 @@ import path from "path";
 import fs from "fs";
 import type MarkdownIt from "markdown-it";
 
-export default (md: MarkdownIt) => {
+interface Options {
+  root?: string;
+}
+
+export default (md: MarkdownIt, options?: Options) => {
   md.use(markdownItContainer, "demo", {
     validate: (params: string) => {
       return params.trim().match(/^demo\s*(.*)$/);
@@ -14,7 +18,7 @@ export default (md: MarkdownIt) => {
       if (record.nesting === 1) {
         const filePath = tokens[idx + 2].content;
 
-        const sourcePath = path.resolve("docs", filePath);
+        const sourcePath = path.resolve(options?.root || "docs", filePath);
 
         const source = fs.readFileSync(sourcePath, "utf-8");
 

@@ -1,6 +1,6 @@
 import { defineConfig, postcssIsolateStyles } from "vitepress";
 // import { mdVueDemoPlugin } from "../../dist";
-import  mdVueDemoPlugin  from "../../src/mdVueDemoPlugin";
+import mdVueDemoPlugin from "../../src/mdVueDemoPlugin";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,9 +16,7 @@ export default defineConfig({
     sidebar: [
       {
         text: "Examples",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-        ],
+        items: [{ text: "Markdown Examples", link: "/markdown-examples" }],
       },
     ],
 
@@ -28,7 +26,7 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      md.use(mdVueDemoPlugin);
+      md.use(mdVueDemoPlugin, { root: "./" });
     },
   },
 });
